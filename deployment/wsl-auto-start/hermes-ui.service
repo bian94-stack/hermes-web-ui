@@ -1,0 +1,15 @@
+[Unit]
+Description=Hermes Web UI Service
+After=network.target
+
+[Service]
+User=%USER%
+WorkingDirectory=%PROJECT_PATH%
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:%HOME/.local/bin
+Environment=NODE_ENV=production
+ExecStart=%NODE_PATH% %PROJECT_PATH%/dist/server/index.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
